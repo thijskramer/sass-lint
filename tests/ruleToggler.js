@@ -30,6 +30,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should allow all rules to be disabled then re-enabled', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-all-then-reenable.scss');
       assert(deepEqual(ruleToggles, {
@@ -40,6 +41,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should allow a single rule to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-a-rule.scss'), {
         globalEnable: [],
@@ -48,6 +50,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should allow multiple rules to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-multiple-rules.scss'), {
         globalEnable: [],
@@ -59,6 +62,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to disable a single line', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-line.scss');
       assert(deepEqual(ruleToggles, {
@@ -68,6 +72,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to disable a block of code', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-block.scss');
       assert(deepEqual(ruleToggles, {
@@ -77,6 +82,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to enable a disabled rule', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-then-enable.scss');
       assert(deepEqual(ruleToggles, {
@@ -86,6 +92,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should ignore comments that don\'t fit known formats', function () {
       var ruleToggles = generateToggledRules('ruleToggler-ignore-unknown.scss');
       assert(deepEqual(ruleToggles, {
@@ -93,6 +100,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should ignore empty files', function () {
       var ruleToggles = generateToggledRules('empty-file.scss');
       assert(deepEqual(ruleToggles, {
@@ -100,6 +108,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should ignore empty comments', function () {
       var ruleToggles = generateToggledRules('ruleToggler-empty-comment.scss');
       assert(deepEqual(ruleToggles, {
@@ -107,6 +116,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should be ordered', function () {
       var ruleToggles = generateToggledRules('ruleToggler-guarantee-order.scss');
       assert(deepEqual(ruleToggles, {
@@ -133,6 +143,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should allow all rules to be disabled then re-enabled', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-all-then-reenable.sass');
       assert(deepEqual(ruleToggles, {
@@ -143,6 +154,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should allow a single rule to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-a-rule.sass'), {
         globalEnable: [],
@@ -151,6 +163,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should allow multiple rules to be disabled', function () {
       assert(deepEqual(generateToggledRules('ruleToggler-disable-multiple-rules.sass'), {
         globalEnable: [],
@@ -162,6 +175,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to disable a single line', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-line.sass');
       assert(deepEqual(ruleToggles, {
@@ -171,6 +185,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to disable a block of code', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-a-block.sass');
       assert(deepEqual(ruleToggles, {
@@ -180,6 +195,7 @@ describe('rule toggling', function () {
         }
       }) === true);
     });
+
     it('should be able to enable a disabled rule', function () {
       var ruleToggles = generateToggledRules('ruleToggler-disable-then-enable.sass');
       assert(deepEqual(ruleToggles, {
@@ -196,6 +212,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should ignore empty files', function () {
       var ruleToggles = generateToggledRules('empty-file.sass');
       assert(deepEqual(ruleToggles, {
@@ -203,6 +220,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should ignore empty comments', function () {
       var ruleToggles = generateToggledRules('ruleToggler-empty-comment.sass');
       assert(deepEqual(ruleToggles, {
@@ -210,6 +228,7 @@ describe('rule toggling', function () {
         ruleEnable: {}
       }) === true);
     });
+
     it('should be ordered', function () {
       var ruleToggles = generateToggledRules('ruleToggler-guarantee-order.sass');
       assert(deepEqual(ruleToggles, {
@@ -227,6 +246,7 @@ describe('rule toggling', function () {
       }) === true);
     });
   });
+
   describe('isResultEnabled', function () {
     it('should disable all rules if global is disabled', function () {
       assert(isResultEnabled({
@@ -238,6 +258,7 @@ describe('rule toggling', function () {
         column: 1
       }) === false);
     });
+
     it('should disable a rule', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -250,6 +271,7 @@ describe('rule toggling', function () {
         column: 1
       }) === false);
     });
+
     it('should not disable an unrelated rule', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -262,6 +284,7 @@ describe('rule toggling', function () {
         column: 1
       }) === true);
     });
+
     it('should support enabling a previously disabled rule', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -274,6 +297,7 @@ describe('rule toggling', function () {
         column: 1
       }) === true);
     });
+
     it('should support disabling a previously re-enabled rule', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -286,6 +310,7 @@ describe('rule toggling', function () {
         column: 1
       }) === false);
     });
+
     it('should support enabling a previously re-enabled then disabled rule (in enabled part)', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -298,6 +323,7 @@ describe('rule toggling', function () {
         column: 1
       }) === true);
     });
+
     it('should support enabling a previously re-enabled then disabled rule (in disabled part)', function () {
       assert(isResultEnabled({
         globalEnable: [],
@@ -310,6 +336,7 @@ describe('rule toggling', function () {
         column: 10
       }) === false);
     });
+
     it('should support disabling a rule that is later re-enabled', function () {
       assert(isResultEnabled({
         globalEnable: [],
